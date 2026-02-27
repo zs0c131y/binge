@@ -10,7 +10,7 @@ export default function App() {
   useEffect(() => {
     api.getTorrents()
       .then(() => setAuthed(true))
-      .catch(e => setAuthed(e.status === 401 ? false : false));
+      .catch(e => setAuthed(e.status === 401 ? false : null));
   }, []);
 
   if (authed === null) {

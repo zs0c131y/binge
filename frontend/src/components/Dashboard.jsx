@@ -57,7 +57,11 @@ export function Dashboard({ onLogout }) {
     }
   }, [refreshStats]));
 
-  function handleAdded() {
+  function handleAdded(row) {
+    setTorrents(prev => {
+      if (prev.find(t => t.id === row.id)) return prev;
+      return [row, ...prev];
+    });
     refreshStats();
   }
 
