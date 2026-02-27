@@ -10,3 +10,6 @@ data/*
 *.log
 npm-debug.log*
 .DS_Store
+.claude/
+.claude-*/
+docs
