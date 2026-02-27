@@ -1,0 +1,15 @@
+version: "3.9"
+
+services:
+  binge:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./data:/data
+    environment:
+      - BINGE_PASSWORD=${BINGE_PASSWORD:-changeme}
+      - SESSION_SECRET=${SESSION_SECRET:-change-this-secret}
+      - DOWNLOAD_PATH=/data/downloads
+      - NODE_ENV=production
