@@ -21,6 +21,9 @@ export default async function eventRoutes(fastify) {
       catch { clearInterval(ping); }
     }, 25_000);
 
-    request.raw.on('close', () => clearInterval(ping));
+    const socket = request.raw.socket;
+    const cleanPing = () => clearInterval(ping);
+    if (socket) socket.once('close', cleanPing);
+    else request.raw.once('close', cleanPing);
   });
 }

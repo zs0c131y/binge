@@ -1,12 +1,6 @@
 import { useState, useEffect } from 'react';
 import { api } from '../api.js';
-
-function fmtBytes(b) {
-  if (!b || b === 0) return '0 B';
-  const u = ['B','KB','MB','GB','TB'];
-  const i = Math.min(Math.floor(Math.log(Math.max(b,1)) / Math.log(1024)), u.length - 1);
-  return `${(b / 1024 ** i).toFixed(1)} ${u[i]}`;
-}
+import { fmtBytes } from '../utils.js';
 
 export function FileList({ torrentId }) {
   const [files,   setFiles]   = useState([]);

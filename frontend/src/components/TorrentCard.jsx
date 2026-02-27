@@ -1,22 +1,7 @@
 import { useState } from 'react';
 import { api } from '../api.js';
 import { FileList } from './FileList.jsx';
-
-function fmtBytes(b) {
-  if (!b || b === 0) return '0 B';
-  const u = ['B','KB','MB','GB','TB'];
-  const i = Math.min(Math.floor(Math.log(Math.max(b,1)) / Math.log(1024)), u.length - 1);
-  return `${(b / 1024 ** i).toFixed(1)} ${u[i]}`;
-}
-
-function fmtSpeed(bps) {
-  if (!bps || bps < 512) return null;
-  return `↓ ${fmtBytes(bps)}/s`;
-}
-
-function fmtDate(ts) {
-  return new Date(ts).toLocaleString(undefined, { dateStyle: 'short', timeStyle: 'short' });
-}
+import { fmtBytes, fmtSpeed, fmtDate } from '../utils.js';
 
 const BADGE = {
   downloading: 'badge-downloading',

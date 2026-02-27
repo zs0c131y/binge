@@ -17,6 +17,12 @@ import { resumeTorrents } from './torrent.js';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DEV = process.env.NODE_ENV !== 'production';
 
+// Refuse to start in production without a real session secret
+if (!DEV && !process.env.SESSION_SECRET) {
+  console.error('FATAL: SESSION_SECRET environment variable must be set in production. Generate with: openssl rand -hex 32');
+  process.exit(1);
+}
+
 const fastify = Fastify({ logger: DEV });
 
 // ── Plugins ──────────────────────────────────────────────────────────────────
