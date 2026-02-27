@@ -3,4 +3,9 @@ node_modules/
 dist/
 data/
 .env
+.env.local
+.env.*.local
 *.sqlite
+*.log
+npm-debug.log*
+.DS_Store
