@@ -18,6 +18,6 @@
     "bcryptjs": "^2.4.3",
     "better-sqlite3": "^9.4.3",
     "fastify": "^4.27.0",
-    "webtorrent": "^2.1.37"
+    "wt-engine": "npm:webtorrent@^2.1.37"
   }
 }

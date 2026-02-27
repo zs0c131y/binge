@@ -1,4 +1,4 @@
-import WebTorrent from 'webtorrent';
+import WebTorrent from 'wt-engine';
 import { rm, mkdirSync } from 'fs';
 import { join } from 'path';
 import {
